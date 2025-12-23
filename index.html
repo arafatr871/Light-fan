@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Light & Fan</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0px;
+        }
+
+        /* LIGHT */
+        .light-bulb {
+            width: 150px;
+            height: 150px;
+            background: #ddd;
+            border-radius: 50%;
+            box-shadow: 0 0 0px navy;
+            margin-bottom: 20px;
+            transition: 1s;
+        }
+
+        .light-on {
+            background: navy;
+            box-shadow: 0 0 300px navy;
+        }
+
+        .lg {
+            display: flex;
+            flex-direction: row;
+            padding-left: 30px;
+        }
+
+        .lb {
+            display: flex;
+            flex-direction: column;
+            padding-left: 160px;
+        }
+
+        /* FAN (CSS) */
+        .fan-container {
+            margin-top: 20px;
+        }
+
+        .lf {
+            display: flex;
+            flex-direction: column;
+            padding-left: 80px;
+            padding-top: 80px;
+        }
+
+        .fan {
+            width: 200px;
+            height: 200px;
+            border: 30px solid #000000;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .blade {
+            width: 50%;
+            height: 13px;
+            background: #FFFFFF;
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            transform-origin: 0% 50%;
+        }
+
+        .blade:nth-child(1) {
+            transform: rotate(0deg);
+        }
+
+        .blade:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .blade:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .blade:nth-child(4) {
+            transform: rotate(135deg);
+        }
+
+        .blade:nth-child(5) {
+            transform: rotate(180deg);
+        }
+
+        .blade:nth-child(6) {
+            transform: rotate(225deg);
+        }
+
+        .blade:nth-child(7) {
+            transform: rotate(270deg);
+        }
+
+        .blade:nth-child(8) {
+            transform: rotate(315deg);
+        }
+
+        /* FAN ANIMATION */
+        .fan-start {
+            animation: spin 0.1s linear infinite;
+            box-shadow: 0px 0px 50px white;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 15px;
+            width: 150px;
+            height: 50px;
+            font-size: 15px border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background: maroon;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            color: white;
+
+        }
+
+        button:hover {
+            background: magenta;
+            transform: scale(1.5);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Light & Fan Control</h2>
+
+    <!-- LIGHT -->
+    <div class="lg">
+        <div id="light" class="light-bulb"></div>
+        <div class="lb">
+            <button id="lightOn">Light ON</button>
+            <button id="lightOff">Light OFF</button>
+        </div>
+    </div>
+
+    <!-- FAN -->
+    <div class="lg">
+        <div class="fan-container">
+            <div id="fan" class="fan">
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+                <div class="blade"></div>
+            </div>
+        </div>
+
+        <div class="lf">
+            <button id="start">Fan Start</button>
+            <button id="stop">Fan Stop</button>
+        </div>
+    </div>
+
+    <script>
+        // FAN JS
+        var fan = document.querySelector('#fan');
+        var start = document.querySelector('#start');
+        var stop = document.querySelector('#stop');
+
+        start.onclick = function () {
+            fan.classList.add('fan-start');
+        }
+        stop.onclick = function () {
+            fan.classList.remove('fan-start');
+        }
+
+        // LIGHT JS
+        var light = document.querySelector('#light');
+        var lightOn = document.querySelector('#lightOn');
+        var lightOff = document.querySelector('#lightOff');
+
+        lightOn.onclick = function () {
+            light.classList.add('light-on');
+        }
+        lightOff.onclick = function () {
+            light.classList.remove('light-on');
+        }
+    </script>
+
+</body>
+
+</html>
