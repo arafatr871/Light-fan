@@ -14,6 +14,15 @@
             align-items: center;
             padding-top: 0px;
         }
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
 
         /* LIGHT */
         .light-bulb {
@@ -144,8 +153,11 @@
 </head>
 
 <body>
+     <video autoplay muted loop id="bgVideo">
+        <source src="https://www.pexels.com/download/video/35284427/" type="video/mp4">
+    </video>
 
-    <h2>Light & Fan Control</h2>
+    <h2 style="color: white; font-size: 25px;">Light & Fan Control</h2>
 
     <!-- LIGHT -->
     <div class="lg">
